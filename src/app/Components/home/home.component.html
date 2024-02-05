@@ -1,0 +1,104 @@
+<div class="home">
+  <div class="data">
+    <div class="">
+      <h3>Trusted Global Currency Converter & Money Transfer Solutions
+      </h3>
+      <p>
+        Best source for currency conversion, sending money online and tracking exchange rates
+
+
+      </p>
+      <div class="d-flex" *ngIf="this.output?.old_amount != null ">
+        <p> Convert From <span>{{this.From}} </span> to <span>{{this.To}}</span></p>
+
+
+      </div>
+    </div>
+
+  </div>
+  <div class="searchBox">
+    <form class="example-form" [formGroup]="Curreny">
+      <div class="container ">
+       
+        <div class="row">
+          <div class="col-12 col-md-12 col-lg-3">
+<label class="Label">Amount</label>
+            <input type="number" formControlName="amount">
+
+          </div>
+          <div class="col-5 col-md-5 col-lg-3">
+            <label class="Label">From</label>
+        
+              <input type="text"  aria-label="Number" matInput formControlName="From"
+                [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+         
+          </div>
+          <div class="switchDiv col-1">
+            <img src="../../../assets/img/switch.png" alt="" width="100%" srcset="" (click)="switch()">
+
+
+
+          </div>
+          <div class="col-6 col-md-6 col-lg-3">
+            <label class="Label">To</label>
+
+              <input type="text"  aria-label="Number" matInput formControlName="To"
+                [matAutocomplete]="autoo">
+
+              <mat-autocomplete #autoo="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions2 | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+        
+          </div>
+          <div class="col-12 col-md-12 col-lg-2">
+            <button mat-raised-button class="convBtn mt-4" (click)="Exchange()">Convert</button>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+    </form>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 dataConv">
+        <p>
+
+          <span class="Value">{{this.output?.old_amount}}</span>
+          <span class="Label">
+            <a [routerLink]="['/',this.output?.old_currency]">
+              {{this.output?.old_currency}}
+            </a>
+          </span>
+
+        </p>
+        <p *ngIf="this.output?.old_amount != null "> =</p>
+        <p>
+          <span class="Value">{{this.output?.new_amount}}</span>
+          <span class="Label">
+            <a [routerLink]="['/',this.output?.new_currency]">
+            {{this.output?.new_currency}}</a>
+
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

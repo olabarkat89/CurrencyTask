@@ -1,0 +1,23 @@
+
+.header{
+    background-color: rgb(241, 237, 237);
+    img{
+        width: 25%;
+    } 
+    ul{
+        list-style: none;
+        display: flex;
+        float: right;
+        li{
+            margin: 10px 20px;
+
+        }
+
+    }
+   
+}
+@media(max-width:500px){
+    img{
+        width: 80% !important;
+    } 
+}
